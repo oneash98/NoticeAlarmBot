@@ -9,3 +9,5 @@ selenium: 4.7.2
 requests: 2.27.1
 
 python-telegram-bot: 13.10
+
+PyMySQL: 1.0.2
