@@ -16,7 +16,7 @@ dispatcher = updater.dispatcher
 
 
 def start_command(update, context):
-    con = pymysql.connect(host='localhost', port=3306, user=user, passwd=passwd, db='NoticeAlarmBot', charset='utf8')
+    con = pymysql.connect(host='localhost', port=3306, user=user, passwd=passwd, db='SUBSCRIPTION', charset='utf8')
     cur = con.cursor()
 
     chat_id = update.message.chat_id
@@ -24,7 +24,7 @@ def start_command(update, context):
     lastname = update.message.from_user.last_name
 
     try:
-        sql = f"INSERT INTO User (chatid, firstname, lastname) VALUES({chat_id}, '{firstname}', '{lastname}')"
+        sql = f"INSERT INTO USER (chatid, lastname, firstname, date_enrolled) VALUES({chat_id}, '{lastname}', '{firstname}', NOW())"
         cur.execute(sql)
         con.commit()
     except IntegrityError as e:
