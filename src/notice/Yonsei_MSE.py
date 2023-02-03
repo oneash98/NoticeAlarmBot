@@ -21,12 +21,12 @@ cur_SUBSCRIPTION = db_SUBSCRIPTION.cursor()
 
 # 구독자들
 cur_SUBSCRIPTION.execute("""
-    SELECT chatid FROM SUBSCRIPTION 
+    SELECT id, chatid FROM SUBSCRIPTION 
         WHERE website IN (
             SELECT id FROM WEBSITE WHERE site_name = '연세대신소재공학과'
             );
     """)
-subscribers = cur_SUBSCRIPTION.fetchall()
+subscribers = cur_SUBSCRIPTION.fetchall() # (id, chatid)
 
 # SOUP
 url = "https://mse.yonsei.ac.kr/mse/board/news.do" # 연세대 신소재공학과 공지 url
@@ -47,9 +47,15 @@ for notice in notice_list:
 
         # 텔레그램으로 구독자들에게 공지
         for one in subscribers:
-            chat_id = one[0]
+            chat_id = one[1] # (id, chatid)
             title = title.replace("[", "{").replace("]", "}")
-            bot.send_message(chat_id = chat_id, text = f"[{title}]({link})", parse_mode = "Markdown", disable_web_page_preview = True)
+            text = f"[{title}]({link})" # 텔레그램으로 보낼 메시지
+            bot.send_message(chat_id = chat_id, text = text, parse_mode = "Markdown", disable_web_page_preview = True)
+
+            # DB에 로그 저장
+            subscription_id = one[0] # (id, chatid)
+            cur_SUBSCRIPTION.execute(f"INSERT INTO NOTICE_LOG (subscription, message_info) VALUES ({subscription_id}, '{text}')")
+
 
 db_SUBSCRIPTION.commit()
 db_SITELOG.commit()
