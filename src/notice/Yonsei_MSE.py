@@ -17,6 +17,7 @@ bot = MyBot(KEY.TELEGRAM_TOKEN.value)
 # 데이터베이스
 db = MyDB()
 db.connect_db_SITELOG()
+db.connect_db_SUBSCRIPTION()
 
 # SOUP
 url = db.get_url(site_name) # 공지 url
@@ -43,3 +44,4 @@ for notice in notice_list:
 
 
 db.SITELOG.close()
+db.SUBSCRIPTION.close()

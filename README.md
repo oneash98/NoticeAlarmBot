@@ -36,6 +36,10 @@ src 경로 밑에 KEY.py 파일 생성 후 아래 내용 추가
 
 <br/>
 
+### MyDB.py
+
+### MyBot.py
+
 ### notice 디렉토리
 
 YONSEI_MSE: 연세대 신소재공학과

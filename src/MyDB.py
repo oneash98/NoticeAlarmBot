@@ -39,7 +39,7 @@ class MyDB:
                 );
             """
         cur.execute(sql)
-        subscribers = cur.fetchone()
+        subscribers = cur.fetchall()
         return(subscribers)
     
     # SITELOG에 특정 게시물 기록 있나 확인 (self.SITELOG 설정 필요)
@@ -57,7 +57,7 @@ class MyDB:
     def save_SITELOG(self, site_name, id, title, link):
         cur = self.SITELOG.cursor()
         sql = f"""
-            INSERT INTO {site_name} VALUES ({id}, {title}, {link}, NOW());
+            INSERT INTO {site_name} VALUES ({id}, '{title}', '{link}', NOW());
             """
         cur.execute(sql)
         self.SITELOG.commit()
