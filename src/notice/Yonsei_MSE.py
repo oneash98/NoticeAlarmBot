@@ -21,27 +21,30 @@ db.connect_db_SUBSCRIPTION()
 
 # SOUP
 url = db.get_url(site_name) # 공지 url
-soup = create_soup(url, KEY.USER_AGENT.value)
-notice_list = soup.select("table.board-table tbody tr")
+try:
+    soup = create_soup(url, KEY.USER_AGENT.value)
+    notice_list = soup.select("table.board-table tbody tr")
 
 
-for notice in notice_list:
-    href = notice.a['href']
-    id = href.split("&")[1].replace("articleNo=", "")
+    for notice in notice_list:
+        href = notice.a['href']
+        id = href.split("&")[1].replace("articleNo=", "")
 
-    check = db.check_SITELOG(site_name, id) # DB에 해당 id 있나 확인
-    if check == 1: # 있을 경우
-        break
-    else: # 없을 경우
-        title = notice.a.text.strip()
-        link = url + href
-        db.save_SITELOG(site_name, id, title, link) # db SITELOG에 게시물 기록 저장
+        check = db.check_SITELOG(site_name, id) # DB에 해당 id 있나 확인
+        if check == 1: # 있을 경우
+            break
+        else: # 없을 경우
+            title = notice.a.text.strip()
+            link = url + href
+            db.save_SITELOG(site_name, id, title, link) # db SITELOG에 게시물 기록 저장
 
-        # 텔레그램으로 구독자들에게 공지
-        title = title.replace("[", "{").replace("]", "}")
-        text = f"[{title}]({link})" # 텔레그램으로 보낼 메시지
-        bot.send_message_to_subscribers(site_name, text)
+            # 텔레그램으로 구독자들에게 공지
+            title = title.replace("[", "{").replace("]", "}")
+            text = f"[{title}]({link})" # 텔레그램으로 보낼 메시지
+            bot.send_message_to_subscribers(site_name, text)
 
+except:
+    pass
 
 db.SITELOG.close()
 db.SUBSCRIPTION.close()
