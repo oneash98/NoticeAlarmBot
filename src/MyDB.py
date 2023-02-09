@@ -71,3 +71,13 @@ class MyDB:
             """
         cur.execute(sql)
         self.SUBSCRIPTION.commit()
+
+    # SUBSCRIPTION의 ERROR_LOG 테이블에 에러 기록 저장 (self.SUBSCRIPTION 설정 필요)
+    def save_ERROR_LOG(self, site_name, text):
+        cur = self.SUBSCRIPTION.cursor()
+        sql = f"""
+            INSERT INTO ERROR_LOG (website, error_info, datetime)
+                VALUES ((SELECT id FROM WEBSITE WHERE site_name = '{site_name}'), '{text}', NOW());
+            """
+        cur.execute(sql)
+        self.SUBSCRIPTION.commit()

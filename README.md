@@ -27,6 +27,7 @@ DB_Export: 초기 데이터베이스 추출 파일
 src 경로 밑에 KEY.py 파일 생성 후 아래 내용 추가
 - USER_AGENT = ""
 - TELEGRAM_TOKEN = ""
+- TELEGRAM_ERROR_CHATID = ""
 - MYSQL_USER = ""
 - MYSQL_PASSWD = ""
 
@@ -43,5 +44,7 @@ src 경로 밑에 KEY.py 파일 생성 후 아래 내용 추가
 ### MyBot.py
 
 ### notice 디렉토리
+
+ErrorCheck: 오류 발생 체크(사이트 구조 변경 등 크롤링 시 발생하는 오류)
 
 YONSEI_MSE: 연세대 신소재공학과
