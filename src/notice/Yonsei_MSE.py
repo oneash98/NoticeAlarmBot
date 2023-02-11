@@ -24,7 +24,8 @@ url = db.get_url(site_name) # 공지 url
 try:
     soup = create_soup(url, KEY.USER_AGENT.value)
     notice_list = soup.select("table.board-table tbody tr")
-
+    if notice_list == []: # 무슨 이유에서든, 제대로 크롤링이 안됐을 때
+        raise Exception('notice_list가 비었습니다')
 
     for notice in notice_list:
         href = notice.a['href']
@@ -43,8 +44,8 @@ try:
             text = f"[{title}]({link})" # 텔레그램으로 보낼 메시지
             bot.send_message_to_subscribers(site_name, text)
 
-except:
-    pass
+except Exception as e:
+    print(e.message)
 
 db.SITELOG.close()
 db.SUBSCRIPTION.close()
