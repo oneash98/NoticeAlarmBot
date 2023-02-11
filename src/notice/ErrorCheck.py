@@ -22,7 +22,7 @@ site_name = '연세대신소재공학과'
 try:
     url = db.get_url(site_name) # 공지 url
     soup = create_soup(url, KEY.USER_AGENT.value)
-    notice_list = soup.select("table.board-table tbody tr333")
+    notice_list = soup.select("table.board-table tbody tr")
     if notice_list == []:
         raise Exception('notice_list가 비었습니다')
     for notice in notice_list:

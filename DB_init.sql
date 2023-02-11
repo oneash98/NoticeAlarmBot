@@ -3,7 +3,7 @@ USE SITELOG;
 
 CREATE TABLE '사이트이름' (
 	id INT NOT NULL,
-    title VARCHAR(50) NOT NULL,
+    title VARCHAR(100) NOT NULL,
     url VARCHAR(500),
     datetime DATETIME NOT NULL,
     PRIMARY KEY (id)
@@ -14,8 +14,8 @@ USE SUBSCRIPTION;
 
 CREATE TABLE USER (
     chatid BIGINT NOT NULL,
-    lastname VARCHAR(15),
-    firstname VARCHAR(15),
+    lastname VARCHAR(30),
+    firstname VARCHAR(30),
     date_enrolled DATETIME NOT NULL,
     PRIMARY KEY (chatid)
 );
@@ -49,7 +49,7 @@ CREATE TABLE NOTICE_LOG (
 CREATE TABLE ERROR_LOG(
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     website TINYINT UNSIGNED NOT NULL,
-    error_info VARCHAR(50) NOT NULL,
+    error_info VARCHAR(100) NOT NULL,
     datetime DATETIME NOT NULL,
     PRIMARY KEY(id),
     CONSTRAINT Error_Log_references_website FOREIGN KEY (website) REFERENCES WEBSITE (id)
