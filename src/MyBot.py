@@ -10,24 +10,17 @@ class MyBot:
     def send_message_to_subscribers(self, site_name, text):
         db = MyDB()
         db.connect_db_SUBSCRIPTION()
-        subscribers = db.get_subscribers(site_name)
+        subscribers = db.get_subscribers(site_name) # (SUBSCRIPTION id, USER id, USER chatid, USER name)
         
         for one in subscribers:
-            chat_id = one[3]
-            self.bot.send_message(chat_id = chat_id, text = text, parse_mode = "Markdown", disable_web_page_preview = True)
+            chat_id = one[2]
+            if chat_id == 0: # 아직 인증코드 입력 전인 유저
+                pass
+            else: # 인증 후 chatid 등록 완료된 유저
+                self.bot.send_message(chat_id = chat_id, text = text, parse_mode = "Markdown", disable_web_page_preview = True)
 
-            # 기록 db에 저장
-            subscription_id = one[0]
-            db.save_NOTICE_LOG(subscription_id, text)
+                # 기록 db에 저장
+                subscription_id = one[0]
+                db.save_NOTICE_LOG(subscription_id, text)
         
-        db.SUBSCRIPTION.close()
-
-    # 오류 메시지 (+ 기록 db에 저장)
-    def send_error_message(self, site_name, error_message):
-        self.bot.send_message(chat_id = KEY.TELEGRAM_ERROR_CHATID.value, text = f"{site_name} 오류 발생\n{error_message}")
-
-        # 기록 db에 저장
-        db = MyDB()
-        db.connect_db_SUBSCRIPTION()
-        db.save_ERROR_LOG(site_name, error_message)
         db.SUBSCRIPTION.close()
