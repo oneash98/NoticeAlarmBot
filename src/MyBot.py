@@ -1,6 +1,5 @@
 import telegram
 from MyDB import MyDB
-from KEY import KEY
 
 class MyBot:
     def __init__(self, bot_token):

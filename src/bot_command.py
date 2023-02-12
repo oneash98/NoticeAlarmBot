@@ -1,7 +1,6 @@
 from telegram.ext import Updater, CommandHandler, ConversationHandler, CallbackQueryHandler, MessageHandler, Filters
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 import pymysql
-from pymysql.err import IntegrityError
 from KEY import KEY
 
 
@@ -90,6 +89,9 @@ def mysubs_command(update, context):
     text = text.strip()
     con.close()
 
+    if text == "": # 구독 정보 없는 경우
+        text = "구독한 사이트가 없습니다."
+        
     update.message.reply_text(text)
 
 
