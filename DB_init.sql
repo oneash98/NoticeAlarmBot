@@ -13,11 +13,11 @@ CREATE DATABASE SUBSCRIPTION;
 USE SUBSCRIPTION;
 
 CREATE TABLE USER (
+	id VARCHAR(6) NOT NULL,
     chatid BIGINT NOT NULL,
-    lastname VARCHAR(30),
-    firstname VARCHAR(30),
+    name VARCHAR(5) NOT NULL,
     date_enrolled DATETIME NOT NULL,
-    PRIMARY KEY (chatid)
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE WEBSITE (
@@ -29,19 +29,19 @@ CREATE TABLE WEBSITE (
 
 CREATE TABLE SUBSCRIPTION (
     id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
-    website TINYINT UNSIGNED NOT NULL,
+    website_id TINYINT UNSIGNED NOT NULL,
     date_start DATETIME NOT NULL,
-    chatid BIGINT NOT NULL,
+    user_id VARCHAR(6) NOT NULL,
     PRIMARY KEY (id),
-    CONSTRAINT website FOREIGN KEY (website) REFERENCES WEBSITE (id),
-    CONSTRAINT chatid FOREIGN KEY (chatid) REFERENCES USER (chatid)
+    CONSTRAINT subscription_references_website FOREIGN KEY (website_id) REFERENCES WEBSITE (id),
+    CONSTRAINT subscription_references_user FOREIGN KEY (user_id) REFERENCES USER (id)
 );
 
 CREATE TABLE NOTICE_LOG (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    subscription SMALLINT UNSIGNED NOT NULL,
+    subscription_id SMALLINT UNSIGNED NOT NULL,
     message_info VARCHAR(1000) NOT NULL,
     datetime DATETIME NOT NULL,
     PRIMARY KEY (id),
-    CONSTRAINT subscription FOREIGN KEY (subscription) REFERENCES SUBSCRIPTION (id)
+    CONSTRAINT notice_log_references_subscription FOREIGN KEY (subscription_id) REFERENCES SUBSCRIPTION (id)
 );

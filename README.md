@@ -33,9 +33,9 @@ src 경로 밑에 KEY.py 파일 생성 후 아래 내용 추가
 
 <br/>
 
-### start_command.py
+### bot_command.py
 
-텔레그램 봇 첫 시작(/start) 시 사용자 정보 db 저장 및 환영 메시지 전송
+텔레그램 봇 명령
 
 <br/>
 
@@ -44,7 +44,5 @@ src 경로 밑에 KEY.py 파일 생성 후 아래 내용 추가
 ### MyBot.py
 
 ### notice 디렉토리
-
-ErrorCheck: 오류 발생 체크(사이트 구조 변경 등 크롤링 시 발생하는 오류)
 
 YONSEI_MSE: 연세대 신소재공학과
