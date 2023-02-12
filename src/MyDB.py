@@ -66,7 +66,7 @@ class MyDB:
     def save_NOTICE_LOG(self, subscription_id, text):
         cur = self.SUBSCRIPTION.cursor()
         sql = f"""
-            INSERT INTO NOTICE_LOG (subscription, message_info, datetime)
+            INSERT INTO NOTICE_LOG (subscription_id, message_info, datetime)
                 VALUES ({subscription_id}, '{text}', NOW());
             """
         cur.execute(sql)

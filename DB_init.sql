@@ -3,7 +3,7 @@ USE SITELOG;
 
 CREATE TABLE '사이트이름' (
 	id INT NOT NULL,
-    title VARCHAR(100) NOT NULL,
+    title VARCHAR(150) NOT NULL,
     url VARCHAR(500),
     datetime DATETIME NOT NULL,
     PRIMARY KEY (id)

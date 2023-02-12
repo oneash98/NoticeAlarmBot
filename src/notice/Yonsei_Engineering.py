@@ -10,7 +10,7 @@ from MyBot import MyBot
 from MyDB import MyDB
 
 # 사이트
-site_name = '연세대신소재공학과'
+site_name = '연세대공과대학'
 
 # 텔레그램 봇
 bot = MyBot(KEY.TELEGRAM_TOKEN.value)
@@ -36,7 +36,7 @@ try:
         if check == 1: # 있을 경우
             break
         else: # 없을 경우
-            title = notice.a.text.strip()
+            title = notice.a.text.replace("[공지]", "").strip()
             title = format_string(title)
             link = url + href
             db.save_SITELOG(site_name, id, title, link) # db SITELOG에 게시물 기록 저장
