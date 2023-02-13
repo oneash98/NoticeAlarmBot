@@ -14,4 +14,5 @@ def create_soup(url, user_agent, verify = True, parser = "html.parser"):
 def format_string(text):
     text = text.replace("[", "{").replace("]", "}") # 텔레그램 봇 하이퍼링크 [] 인식 방해 방지
     text = text.replace("'", "")
+    text = text.strip()
     return text
