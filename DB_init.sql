@@ -42,6 +42,5 @@ CREATE TABLE NOTICE_LOG (
     subscription_id SMALLINT UNSIGNED NOT NULL,
     message_info VARCHAR(1000) NOT NULL,
     datetime DATETIME NOT NULL,
-    PRIMARY KEY (id),
-    CONSTRAINT notice_log_references_subscription FOREIGN KEY (subscription_id) REFERENCES SUBSCRIPTION (id)
+    PRIMARY KEY (id)
 );
