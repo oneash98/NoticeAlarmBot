@@ -7,6 +7,10 @@ def create_soup(url, user_agent, verify = True, parser = "html.parser"):
     headers = {"User-Agent": user_agent}
     res = requests.get(url, headers = headers, verify = verify)
     res.raise_for_status()
+    # 인코딩 문제 해결
+    if not 'charset' in res.headers['content-type']:
+        res.encoding = res.apparent_encoding
+
     soup = BeautifulSoup(res.text, parser)
     return soup
 
