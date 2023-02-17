@@ -58,7 +58,7 @@ src 경로 밑에 KEY.py 파일 생성 후 아래 내용 추가
 3. (신규 사이트인 경우) SITELOG 데이터베이스에 해당 사이트 테이블 생성
 ```sql
 CREATE TABLE '사이트이름' (
-	id INT NOT NULL,
+	id VARCHAR(400) NOT NULL,
     title VARCHAR(150) NOT NULL,
     url VARCHAR(500),
     datetime DATETIME NOT NULL,
@@ -73,7 +73,7 @@ INSERT INTO WEBSITE (site_name, url) VALUES ('사이트이름', '사이트url');
 
 5. 크롤링 코드 완성
 
-6. (신규 사이트인 경우) SITELOG 데이터베이스에 기록 저장 (크롤링 코드의 MyDB.host를 서버 ip로 변경해서 save_sitelog까지만 실행)
+6. (신규 사이트인 경우) SITELOG 데이터베이스에 기록 저장 (크롤링 코드의 MyDB.host를 서버 ip로 변경 후 실행)
 
 7. (신규 유저인 경우) SUBSCRIPTION 데이터베이스 USER 테이블에 유저 저장
 ```sql

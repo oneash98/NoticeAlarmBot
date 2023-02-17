@@ -47,7 +47,7 @@ class MyDB:
         cur = self.SITELOG.cursor()
         sql = f"""
             SELECT EXISTS (
-                SELECT * FROM {site_name} WHERE id = {id}
+                SELECT * FROM {site_name} WHERE id = '{id}'
                 );
             """
         cur.execute(sql)
@@ -57,7 +57,7 @@ class MyDB:
     def save_SITELOG(self, site_name, id, title, link):
         cur = self.SITELOG.cursor()
         sql = f"""
-            INSERT INTO {site_name} VALUES ({id}, '{title}', '{link}', NOW());
+            INSERT INTO {site_name} VALUES ('{id}', '{title}', '{link}', NOW());
             """
         cur.execute(sql)
         self.SITELOG.commit()
