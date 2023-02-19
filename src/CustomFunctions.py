@@ -30,6 +30,9 @@ def create_soup_selenium(url, user_agent, wait_for = None, browser_action = None
     options.add_argument("--disable-gpu") 
     options.add_argument("--disable-infobars")
     options.add_argument("--disable-extensions")
+    options.add_argument("--disable-setuid-sandbox")
+    options.add_argument("--incognito")
+
 
     prefs = {'profile.default_content_setting_values': {'cookies'                   : 2, 'images': 2,
                                                         'plugins'                   : 2, 'popups': 2, 'geolocation': 2,
