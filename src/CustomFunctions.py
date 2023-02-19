@@ -20,7 +20,7 @@ def create_soup(url, user_agent, verify = True, parser = "html.parser"):
     return soup
 
 # soup 생성 - selenium 사용
-def create_soup_selenium(url, user_agent, wait_for = None):
+def create_soup_selenium(url, user_agent, wait_for = None, browser_action = None):
     options = webdriver.ChromeOptions()
     options.headless = True
     options.add_argument(f"user-agent = {user_agent}")
@@ -61,6 +61,8 @@ def create_soup_selenium(url, user_agent, wait_for = None):
         #     pass
         # else: # 특정 요소 기다리기
         #     WebDriverWait(browser, 120).until(EC.presence_of_element_located(wait_for)) # 10초
+
+        exec(browser_action) # 추가 액션 실행
 
         soup = BeautifulSoup(browser.page_source, "html.parser")
 
