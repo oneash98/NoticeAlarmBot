@@ -55,7 +55,7 @@ def create_soup_selenium(url, user_agent, wait_for = None, browser_action = None
     caps = DesiredCapabilities().CHROME
     caps["pageLoadStrategy"] = "none"
     
-    browser = webdriver.Chrome("./../../chromedriver", options=options)
+    browser = webdriver.Chrome("/usr/bin/chromedriver", options=options)
     # browser.set_page_load_timeout(10) # 10초 이상 타임아웃 발생 시 에러 발생
 
     try:
