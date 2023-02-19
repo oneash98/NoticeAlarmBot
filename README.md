@@ -86,7 +86,7 @@ INSERT INTO USER VALUES ('인증코드', 0, '이름', NOW());
 INSERT INTO SUBSCRIPTION (website_id, date_start, user_id) VALUES ((SELECT id FROM WEBSITE WHERE site_name = '사이트이름'), NOW(), '인증코드');
 ```
 
-9. (신규 사이트인 경우) 서버 notice 경로에 크롤링 파일 저장, crontab 추가 후 재시작 (sudo service cron restart)
+9. (신규 사이트인 경우) bash 실행 파일 수정, 서버에 코드 업데이트
 
 10. (신규 유저인 경우) 유저에게 카톡으로 텔레그램 링크와 인증코드 제공 (유저가 인증코드 입력하면 자동으로 데이터베이스에 chatid 저장)
 
