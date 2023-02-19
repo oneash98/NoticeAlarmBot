@@ -5,6 +5,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import traceback
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 # soup 생성
@@ -55,7 +57,7 @@ def create_soup_selenium(url, user_agent, wait_for = None, browser_action = None
     caps = DesiredCapabilities().CHROME
     caps["pageLoadStrategy"] = "none"
     
-    browser = webdriver.Chrome("./../../chromedriver", options=options)
+    browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     # browser.set_page_load_timeout(10) # 10초 이상 타임아웃 발생 시 에러 발생
 
     try:
