@@ -36,7 +36,7 @@ try:
         if check == 1: # 있을 경우
             break
         else: # 없을 경우
-            title = notice.a.find(attrs = {"class": "subject-area"}).text
+            title = notice.a.find(attrs = {"class": "subject"}).text
             title = format_string(title)
             link = url + href
             db.save_SITELOG(site_name, id, title, link) # db SITELOG에 게시물 기록 저장
