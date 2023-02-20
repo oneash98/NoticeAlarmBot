@@ -6,6 +6,8 @@ beautifulsoup4: 4.10.0
 
 selenium: 4.7.2
 
+webdriver-manager: 3.8.5
+
 requests: 2.27.1
 
 python-telegram-bot: 13.10
@@ -34,7 +36,7 @@ src 경로 밑에 KEY.py 파일 생성 후 아래 내용 추가
 
 ### bot_command.py
 
-텔레그램 봇 명령
+텔레그램 봇 명령 (nohup으로 24시간 실행)
 
 <br/>
 
