@@ -2,12 +2,11 @@
 
 .DS_Store
 bot_info.txt
-test.py
-test_bot.py
-test.ipynb
+test*.*
 KEY.py
 ip.txt
 chromedriver
+*.log
 
 #####################템플릿###########33
 
@@ -69,7 +68,6 @@ cover/
 *.pot
 
 # Django stuff:
-*.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal

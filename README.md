@@ -48,6 +48,20 @@ src 경로 밑에 KEY.py 파일 생성 후 아래 내용 추가
 
 - Yonsei_MSE: 연세대 신소재공학과
 - Yonsei_Engineering: 연세대 공과대학
+- Yonsei_Nursing: 연세대 간호학과
+- K-Startup
+- KNU_electric: 경북대 전기공학과
+- KNU_SEE_employment: 경북대 전자공학부 취업
+- KNU: 경북대학교
+- KU_OIA: 건국대 국제교류협력팀
+
+<br/>
+
+### error_info.py
+
+bot_command_error.log, notice_error.log 파일 내 에러 로그 있을 경우 알림
+
+log 파일들 src 경로 하에 생성 필요
 
 <br/>
 

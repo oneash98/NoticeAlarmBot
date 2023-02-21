@@ -1,5 +1,6 @@
 import telegram
 from MyDB import MyDB
+from KEY import KEY
 
 class MyBot:
     def __init__(self, bot_token):
@@ -23,3 +24,11 @@ class MyBot:
                 db.save_NOTICE_LOG(subscription_id, text)
         
         db.SUBSCRIPTION.close()
+
+    # 오류 발생 시 알림
+    def send_error_info(self, log_file):
+        with open (log_file, 'r') as f:
+            if f.read(): # 파일에 내용 있을 경우
+                self.bot.send_message(chat_id = KEY.TELEGRAM_ONEASH.value, text = f'오류 발생\n{log_file} 확인 필요')
+            else: # 파일에 내용 없을 경우
+                pass 
