@@ -38,7 +38,11 @@ try:
 
         check = db.check_SITELOG(site_name, id) # DB에 해당 id 있나 확인
         if check == 1: # 있을 경우
-            break
+            if notice.has_attr('class'): # 상단 고정 공지일 경우
+                pass
+            else: # 상단 고정 아닐 경우
+                break
+
         else: # 없을 경우
             title = notice.a.text
             title = format_string(title)
