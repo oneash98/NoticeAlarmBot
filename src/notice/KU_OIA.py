@@ -42,7 +42,7 @@ try:
         else: # 없을 경우
             title = notice.a.text
             title = format_string(title)
-            link = "http://www.konkuk.ac.kr/do/MessageBoard/" + href
+            link = "http://friend.konkuk.ac.kr/do/MessageBoard/" + href
             db.save_SITELOG(site_name, id, title, link) # db SITELOG에 게시물 기록 저장
 
             # 텔레그램으로 구독자들에게 공지
