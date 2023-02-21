@@ -1,3 +1,4 @@
+import datetime
 import os
 import sys
 import traceback
@@ -49,6 +50,7 @@ try:
             bot.send_message_to_subscribers(site_name, text)
 
 except Exception:
+    print(datetime.datetime.now())
     print(traceback.format_exc())
 
 db.SITELOG.close()

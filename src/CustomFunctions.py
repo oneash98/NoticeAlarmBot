@@ -1,3 +1,4 @@
+import datetime
 import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -71,6 +72,7 @@ def create_soup_selenium(url, user_agent, wait_for = None, browser_action = None
         soup = BeautifulSoup(browser.page_source, "html.parser")
 
     except:
+        print(datetime.datetime.now())
         print(traceback.format_exc())
 
     finally:
