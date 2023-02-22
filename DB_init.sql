@@ -16,6 +16,7 @@ CREATE TABLE USER (
 	id VARCHAR(6) NOT NULL,
     chatid BIGINT NOT NULL,
     name VARCHAR(5) NOT NULL,
+    plan VARCHAR(5) NOT NULL,
     date_enrolled DATETIME NOT NULL,
     PRIMARY KEY (id)
 );

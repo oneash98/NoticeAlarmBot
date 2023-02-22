@@ -93,7 +93,7 @@ INSERT INTO WEBSITE (site_name, url) VALUES ('사이트이름', '사이트url');
 
 7. (신규 유저인 경우) SUBSCRIPTION 데이터베이스 USER 테이블에 유저 저장
 ```sql
-INSERT INTO USER VALUES ('인증코드', 0, '이름', NOW());
+INSERT INTO USER VALUES ('인증코드', 0, '이름', NOW(), "FREE");
 -- chatid 는 0으로 지정
 ```
 
