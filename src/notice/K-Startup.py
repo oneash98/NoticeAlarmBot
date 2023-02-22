@@ -25,7 +25,7 @@ db.connect_db_SUBSCRIPTION()
 # SOUP
 url = db.get_url(site_name) # 공지 url
 try:
-    soup = create_soup_selenium(url, KEY.USER_AGENT.value)
+    soup = create_soup_selenium(url, KEY.USER_AGENT.value, wait_for=(By.CLASS_NAME, "notice"))
     notice_list = soup.select("li.notice")
     if notice_list == []: # 무슨 이유에서든, 제대로 크롤링이 안됐을 때
         raise Exception('notice_list가 비었습니다')

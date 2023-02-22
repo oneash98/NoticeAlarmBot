@@ -63,8 +63,8 @@ def create_soup_selenium(url, user_agent, wait_for = None, browser_action = None
 
     try:
         browser.get(url)
-        # if wait_for != None: # 특정 요소 기다리기
-        #     WebDriverWait(browser, 10).until(EC.presence_of_element_located(wait_for)) # 10초
+        if wait_for != None: # 특정 요소 기다리기
+            WebDriverWait(browser, 60).until(EC.presence_of_all_elements_located(wait_for)) # 60초
 
         if browser_action != None:
             exec(browser_action) # 추가 액션 실행

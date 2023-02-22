@@ -26,7 +26,7 @@ db.connect_db_SUBSCRIPTION()
 url = db.get_url(site_name) # 공지 url
 try:
     browser_action = 'browser.switch_to.frame("iframe_main")'
-    soup = create_soup_selenium(url, KEY.USER_AGENT.value, browser_action=browser_action)
+    soup = create_soup_selenium(url, KEY.USER_AGENT.value, wait_for=(By.ID, "iframe_main"), browser_action=browser_action)
 
     notice_list = soup.select("tbody tr")
     if notice_list == []: # 무슨 이유에서든, 제대로 크롤링이 안됐을 때
