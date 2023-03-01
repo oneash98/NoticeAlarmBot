@@ -54,6 +54,8 @@ src 경로 밑에 KEY.py 파일 생성 후 아래 내용 추가
 - KNU_SEE_employment: 경북대 전자공학부 취업
 - KNU: 경북대학교
 - KU_OIA: 건국대 국제교류협력팀
+- KNU_bachelor: 경북대 학사공지
+- KNU_global: 경부개 국제교류처
 
 <br/>
 
