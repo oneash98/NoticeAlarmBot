@@ -49,6 +49,7 @@ src 경로 밑에 KEY.py 파일 생성 후 아래 내용 추가
 - Yonsei_MSE: 연세대 신소재공학과
 - Yonsei_Engineering: 연세대 공과대학
 - Yonsei_Nursing: 연세대 간호학과
+- Yonsei_Nursing_Postgraduate: 연세대 간호대학 일반대학원
 - K-Startup
 - KNU_electric: 경북대 전기공학과
 - KNU_SEE_employment: 경북대 전자공학부 취업
