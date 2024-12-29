@@ -1,18 +1,6 @@
 ### Version
 
-python: 3.10.5
-
-beautifulsoup4: 4.10.0
-
-selenium: 4.7.2
-
-webdriver-manager: 3.8.5
-
-requests: 2.27.1
-
-python-telegram-bot: 13.10
-
-PyMySQL: 1.0.2
+requirements.txt
 
 <br/>
 
@@ -50,6 +38,7 @@ src 경로 밑에 KEY.py 파일 생성 후 아래 내용 추가
 - Yonsei_Engineering: 연세대 공과대학
 - Yonsei_Nursing: 연세대 간호학과
 - Yonsei_Nursing_Postgraduate: 연세대 간호대학 일반대학원
+- Yonsei_Graduate: 연세대 일반대학원
 - K-Startup
 - KNU_electric: 경북대 전기공학과
 - KNU_SEE_employment: 경북대 전자공학부 취업

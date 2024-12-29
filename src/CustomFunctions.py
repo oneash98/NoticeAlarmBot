@@ -8,6 +8,7 @@ import traceback
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+import re
 
 
 # soup 생성
@@ -85,5 +86,5 @@ def create_soup_selenium(url, user_agent, wait_for = None, browser_action = None
 def format_string(text):
     text = text.replace("[", "{").replace("]", "}") # 텔레그램 봇 하이퍼링크 [] 인식 방해 방지
     text = text.replace("'", "")
-    text = text.strip()
+    text = re.sub(r'\s+', ' ', text).strip()
     return text
