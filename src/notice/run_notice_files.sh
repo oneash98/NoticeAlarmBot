@@ -3,4 +3,4 @@
 cd /home/oneash082498/NoticeAlarmBot/src/notice
 
 
-python3 Yonsei_Nursing.py ; python3 Yonsei_Nursing_Postgraduate.py ; python3 Yonsei_Graduate ; python3 Yonsei_MSE.py ; python3 Yonsei_Engineering.py
+python3 Yonsei_Nursing.py ; python3 Yonsei_Nursing_Postgraduate.py ; python3 Yonsei_Graduate ; python3 Yonsei ; python3 Yonsei_MSE.py ; python3 Yonsei_Engineering.py
